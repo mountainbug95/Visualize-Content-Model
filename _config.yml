@@ -1,0 +1,48 @@
+title: Visualize
+baseurl: /
+cta:
+  title: Sed lacus felis
+  subtitle: >-
+    Magna etiam commodo quis, gravida est. Sed lectus. Praesent elementum
+    hendrerit tortor. Sed at felis. Vestibulum volutpat, lacus a ultrices
+    sagittis, mi neque euismod dui, eu pulvinar nunc sapien.
+  section_id: cta
+footer:
+  copyright: '&copy; Untitled Corp. All rights reserved.'
+  social_links:
+    - title: Twitter
+      icon: fa-twitter
+      link_url: '#'
+    - title: Instagram
+      icon: fa-instagram
+      link_url: '#'
+    - title: Facebook
+      icon: fa-facebook
+      link_url: '#'
+    - title: Pinterest
+      icon: fa-pinterest
+      link_url: '#'
+    - title: Email
+      icon: fa-envelope
+      link_url: '#'
+palette: cyan
+palettes:
+  cyan:
+    sass:
+      color: '#61c5e0'
+  green:
+    sass:
+      color: '#57d9bf'
+  orange:
+    sass:
+      color: '#e87654'
+  purple:
+    sass:
+      color: '#8161e0'
+sass:
+  indentWidth: 4
+  style: nested
+  precision: 10
+plugins:
+  - jekyll-menus
+permalink: '/posts/:slug:output_ext'

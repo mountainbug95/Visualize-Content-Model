@@ -1,0 +1,10 @@
+<!-- Features Grid -->
+<div id="{{ include.section.section_id }}" class="features-grid special">
+    {% for feature in include.section.features_list %}
+        <div class="feature">
+            <span class="icon {{ feature.icon }}"></span>
+            <h4>{{ feature.title }}</h4>
+            {{ feature.subtitle | markdownify }}
+        </div>
+    {% endfor %}
+</div>

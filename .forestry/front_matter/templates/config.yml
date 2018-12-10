@@ -1,0 +1,109 @@
+---
+label: Config
+hide_body: true
+is_partial: false
+fields:
+  - type: text
+    name: title
+    label: Title
+    description: Site title
+    config:
+      required: true
+  - type: field_group
+    name: cta
+    label: CTA Configuration
+    fields:
+      - type: text
+        name: title
+        label: CTA Title
+        description: The text displayed at the top of the page CTA
+        config:
+          required: true
+      - type: textarea
+        name: subtitle
+        label: CTA Subtitle
+        description: The text displayed under the CTA title
+        config:
+          wysiwyg: true
+          schema:
+            format: markdown
+      - type: text
+        name: section_id
+        label: Section ID
+        default: cta
+        config:
+          required: true
+  - type: field_group
+    name: footer
+    label: Footer Configuration
+    fields:
+      - type: text
+        name: copyright
+        label: Footer Copyright text
+      - type: field_group_list
+        name: social_links
+        label: Social Media Icons
+        description: A list of social media icons displayed in the page footer
+        config:
+          labelField: title
+        fields:
+          - type: text
+            name: title
+            label: Icon Title
+            config:
+              required: true
+          - type: text
+            name: icon
+            label: Icon
+            description: Font Awesome icon
+            config:
+              required: true
+          - type: text
+            name: link_url
+            label: URL
+  - type: select
+    name: palette
+    label: Color Palette
+    description: The color palette used for the site
+    default: cyan
+    config:
+      required: true
+      source:
+        type: custom
+      options:
+        - cyan
+        - green
+        - orange
+        - purple
+  - type: field_group
+    name: palettes
+    hidden: true
+    fields:
+      - type: field_group
+        name: cyan
+        fields:
+          - type: include
+            name: include_palette
+            label: Palette
+            template: palette
+      - type: field_group
+        name: green
+        fields:
+          - type: include
+            name: include_palette
+            label: Palette
+            template: palette
+      - type: field_group
+        name: orange
+        fields:
+          - type: include
+            name: include_palette
+            label: Palette
+            template: palette
+      - type: field_group
+        name: purple
+        fields:
+          - type: include
+            name: include_palette
+            label: Palette
+            template: palette

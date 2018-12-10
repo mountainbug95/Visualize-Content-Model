@@ -1,0 +1,57 @@
+---
+label: Home
+hide_body: true
+is_partial: false
+fields:
+  - type: text
+    name: title
+    label: Page Title
+    config:
+      required: true
+  - type: field_group
+    name: banner
+    label: Page Banner
+    fields:
+      - type: text
+        name: title
+        label: Banner Title
+        description: The second line of text displayed in the page banner
+        config:
+          required: true
+      - type: textarea
+        name: subtitle
+        label: Banner Subtitle
+        description: The first line of text displayed in the page banner
+        config:
+          wysiwyg: true
+          schema:
+            format: markdown
+      - type: field_group_list
+        name: actions
+        label: Banner Action Buttons
+        config:
+          labelField: label
+        fields:
+          - type: include
+            name: include_action
+            label: Action
+            template: action
+  - type: blocks
+    name: sections
+    label: Sections
+    description: Home Sections
+    template_types:
+      - features
+      - spotlight
+      - stats
+      - spotlight_pages
+      - cta
+  - type: text
+    name: layout
+    label: Layout
+    hidden: true
+    default: home
+    config:
+      required: true
+pages:
+  - index.md

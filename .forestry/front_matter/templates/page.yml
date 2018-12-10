@@ -1,0 +1,60 @@
+---
+label: Page
+is_partial: false
+fields:
+  - type: text
+    name: title
+    label: Page Title
+    description: The text displayed at the top of the page
+    config:
+      required: true
+  - type: textarea
+    name: subtitle
+    label: Section Subtitle
+    description: The text displayed below the page title
+    config:
+      wysiwyg: true
+      schema:
+        format: markdown
+  - type: textarea
+    name: excerpt
+    label: Home Spotlight Excerpt
+    description: The excerpt displayed in the home spotlight (if home spotlight is enabled)
+    config:
+      wysiwyg: true
+      schema:
+        format: markdown
+  - type: file
+    name: content_img_path
+    label: Content Image
+    description: The image displayed in the content section of the page
+  - type: file
+    name: alt_img_path
+    label: Alternate Image
+    description: The image displayed in the home spotlights section
+  - type: boolean
+    name: show_in_spotlight
+    label: Show In Home Spotlights
+    description: Displays a spotlight for the page in the home spotlights section
+    default: false
+  - type: number
+    name: spotlight_weight
+    label: Spotlight Index
+    description: The index of the page spotlight in the home spotlights section
+  - type: boolean
+    name: show_cta
+    label: Show CTA
+    description: Displays the CTA at the bottom of the page
+    default: false
+  - type: text
+    name: layout
+    label: Layout
+    hidden: true
+    default: page
+    config:
+      required: true
+pages:
+  - augue-libero.md
+  - generic.md
+  - ipsum-volutpat.md
+  - ultrices-magna.md

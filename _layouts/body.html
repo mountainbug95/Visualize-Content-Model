@@ -1,0 +1,15 @@
+---
+layout: base
+---
+
+    {% include header.html %}
+
+    {% include menu.html %}
+
+    {{ content }}
+
+    {% if page.show_cta %}
+        {% include cta.html %}
+    {% endif %}
+
+    {% include footer.html %}

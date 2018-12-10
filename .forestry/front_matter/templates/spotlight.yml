@@ -1,0 +1,56 @@
+---
+label: Spotlight Section
+hide_body: true
+is_partial: true
+display_field: identifier
+fields:
+  - type: text
+    name: title
+    label: Section Title
+    description: The text displayed at the top of the section
+    config:
+      required: true
+  - type: textarea
+    name: subtitle
+    label: Section Subtitle
+    description: The text displayed below the section title
+    config:
+      wysiwyg: true
+      schema:
+        format: markdown
+  - type: text
+    name: section_id
+    label: Section ID
+    default: spotlight
+  - type: field_group
+    name: home_img
+    label: Section Image
+    description: The image displayed under the section subtitle
+    fields:
+      - type: select
+        name: data_position
+        label: Image Data Position
+        default: center
+        config:
+          source:
+            type: custom
+          options:
+            - right
+            - left
+            - center
+      - type: file
+        name: path
+        label: Image
+  - type: text
+    name: identifier
+    label: Identifier
+    description: Used by the CMS to identify the section (not used by the page)
+    default: spotlight
+    config:
+      required: true
+  - type: text
+    name: component
+    hidden: true
+    default: spotlight.html
+    config:
+      required: true

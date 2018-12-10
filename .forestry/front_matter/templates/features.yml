@@ -1,0 +1,48 @@
+---
+label: Features Section
+hide_body: true
+is_partial: true
+display_field: identifier
+fields:
+  - type: text
+    name: section_id
+    label: Section ID
+    default: features
+  - type: field_group_list
+    name: features_list
+    label: Features
+    description: A list of features to be displayed in the section
+    config:
+      labelField: title
+    fields:
+      - type: text
+        name: title
+        label: Feature Title
+        description: The bold first line of text displayed in the feature
+        config:
+          required: true
+      - type: textarea
+        name: subtitle
+        label: Feature Subtitle
+        description: The text displayed below the feature title
+        config:
+          wysiwyg: true
+          schema:
+            format: markdown
+      - type: text
+        name: icon
+        label: Feature Icon
+        description: (Font Awesome icon) The icon displayed above the feature title
+  - type: text
+    name: identifier
+    label: Identifier
+    description: Used by the CMS to identify the section (not used by the page)
+    default: features
+    config:
+      required: true
+  - type: text
+    name: component
+    hidden: true
+    default: features.html
+    config:
+      required: true

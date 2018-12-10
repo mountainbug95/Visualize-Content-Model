@@ -1,0 +1,16 @@
+<!-- Two -->
+<div id="{{ include.section.section_id }}">
+    <div class="wrapper special">
+        <div class="inner">
+            <header class="heading">
+                <h2>{{ include.section.title }}</h2>
+                {{ include.section.subtitle | markdownify }}
+            </header>
+        </div>
+    </div>
+    {% if include.section.home_img %}
+        <div class="image major" data-position="{{ include.section.home_img.data_position }}">
+            <img src="{{ include.section.home_img.path | relative_url }}" alt="" />
+        </div>
+    {% endif %}
+</div>
