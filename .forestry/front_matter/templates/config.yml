@@ -77,10 +77,12 @@ fields:
         - purple
   - type: field_group
     name: palettes
+    label: Palettes
     hidden: true
     fields:
       - type: field_group
         name: cyan
+        label: Cyan
         fields:
           - type: include
             name: include_palette
@@ -88,6 +90,7 @@ fields:
             template: palette
       - type: field_group
         name: green
+        label: Green
         fields:
           - type: include
             name: include_palette
@@ -95,6 +98,7 @@ fields:
             template: palette
       - type: field_group
         name: orange
+        label: Orange
         fields:
           - type: include
             name: include_palette
@@ -102,6 +106,7 @@ fields:
             template: palette
       - type: field_group
         name: purple
+        label: Purple
         fields:
           - type: include
             name: include_palette
