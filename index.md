@@ -9,7 +9,8 @@ banner:
       is_scrolly: true
       is_primary: true
 sections:
-  - section_id: features
+  - title: Features Section
+    section_id: features
     features_list:
       - title: Magna etiam
         subtitle: Lorem ipsum dolor sit amet nulla blandit aliquam
@@ -29,7 +30,6 @@ sections:
       - title: Aenean lorem
         subtitle: Lorem ipsum dolor sit amet nulla blandit aliquam
         icon: fa-comment-o
-    identifier: features
     component: features.html
     template: features
   - title: Aenean sed consequat
@@ -43,7 +43,6 @@ sections:
     home_img:
       data_position: center
       path: images/pic01.jpg
-    identifier: spotlight
     component: spotlight.html
     template: spotlight
   - title: Integer euismod nulla
@@ -63,7 +62,6 @@ sections:
         num: 512
       - title: Amet commodo
         num: 128
-    identifier: stats
     component: stats.html
     template: stats
   - title: Sapien feugiat sed consequat
@@ -72,10 +70,9 @@ sections:
       hendrerit tortor. Sed at felis. Vestibulum volutpat, lacus a ultrices
       sagittis, mi neque euismod dui, eu pulvinar nunc sapien.
     section_id: spotlight_pages
-    identifier: spotlight pages
     component: spotlight_pages.html
     template: spotlight_pages
-  - identifier: cta
+  - title: CTA Section
     component: cta.html
     template: cta
 menus:

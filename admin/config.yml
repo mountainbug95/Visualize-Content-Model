@@ -1,0 +1,432 @@
+backend:
+  name: git-gateway
+  branch: master
+media_folder: uploads
+public_folder: /uploads
+collections:
+  - name: config
+    label: Config
+    files:
+      - name: config
+        label: Config
+        file: _config.yml
+        fields:
+          - name: title
+            label: Title
+            widget: text
+            required: true
+          - name: cta
+            widget: object
+            required: false
+            label: CTA Configuration
+            fields:
+              - name: title
+                widget: string
+                required: true
+                label: CTA Title
+                hint: The text displayed at the top of the page CTA
+              - name: subtitle
+                widget: markdown
+                required: false
+                label: CTA Subtitle
+                hint: The text displayed under the CTA title
+              - name: section_id
+                widget: string
+                required: true
+                label: Section ID
+                default: cta
+          - name: footer
+            widget: object
+            required: false
+            label: Footer Configuration
+            fields:
+              - name: copyright
+                widget: string
+                required: false
+                label: Footer Copyright text
+              - name: social_links
+                widget: list
+                required: false
+                label: Social Media Icons
+                hint: A list of social media icons displayed in the page footer
+                fields:
+                  - name: title
+                    widget: string
+                    required: true
+                    label: Icon Title
+                  - name: icon
+                    widget: string
+                    required: true
+                    label: Icon
+                    hint: Font Awesome icon
+                  - name: link_url
+                    widget: string
+                    required: false
+                    label: URL
+          - name: palette
+            widget: select
+            required: true
+            label: Color Palette
+            default: cyan
+            hint: The color palette used for the site
+            options:
+              - cyan
+              - green
+              - orange
+              - purple
+          - name: palettes
+            widget: hidden
+            required: false
+            label: Palettes
+  - name: home
+    label: Home
+    files:
+      - name: home
+        label: Home
+        file: index.md
+        fields:
+          - name: title
+            widget: string
+            required: true
+            label: Page Title
+          - name: banner
+            widget: object
+            required: false
+            label: Page Banner
+            fields:
+              - name: title
+                widget: string
+                required: true
+                label: Banner Title
+                hint: The second line of text displayed in the page banner
+              - name: subtitle
+                widget: markdown
+                required: false
+                label: Banner Subtitle
+                hint: The first line of text displayed in the page banner
+              - name: actions
+                widget: list
+                required: false
+                label: Banner Action Buttons
+                fields:
+                  - name: label
+                    widget: string
+                    required: true
+                    label: Button Label
+                    hint: The text displayed inside the action button
+                  - name: url
+                    widget: string
+                    required: false
+                    label: Button URL
+                  - name: is_scrolly
+                    widget: boolean
+                    required: false
+                    label: Is Scrolly
+                    default: false
+                    hint: >-
+                      Gives the button a scroll animation (if the button URL is
+                      a section ID)
+                  - name: is_primary
+                    widget: boolean
+                    required: false
+                    label: Is Primary
+                    default: false
+                    hint: Gives the button a primary color scheme
+          - name: sections
+            widget: list
+            required: false
+            label: Sections
+            hint: Home Sections
+            types:
+              - name: features
+                widget: object
+                label: Features Section
+                fields:
+                  - name: section_id
+                    widget: string
+                    required: false
+                    label: Section ID
+                    default: features
+                  - name: features_list
+                    widget: list
+                    required: false
+                    label: Features
+                    hint: A list of features to be displayed in the section
+                    fields:
+                      - name: title
+                        widget: string
+                        required: true
+                        label: Feature Title
+                        hint: The bold first line of text displayed in the feature
+                      - name: subtitle
+                        widget: markdown
+                        required: false
+                        label: Feature Subtitle
+                        hint: The text displayed below the feature title
+                      - name: icon
+                        widget: string
+                        required: false
+                        label: Feature Icon
+                        hint: >-
+                          (Font Awesome icon) The icon displayed above the
+                          feature title
+                  - name: identifier
+                    widget: string
+                    required: true
+                    label: Identifier
+                    default: features
+                    hint: >-
+                      Used by the CMS to identify the section (not used by the
+                      page)
+                  - name: component
+                    widget: hidden
+                    required: true
+                    label: Section Component
+                    default: features.html
+              - name: spotlight
+                widget: object
+                label: Spotlight Section
+                fields:
+                  - name: title
+                    widget: string
+                    required: true
+                    label: Section Title
+                    hint: The text displayed at the top of the section
+                  - name: subtitle
+                    widget: markdown
+                    required: false
+                    label: Section Subtitle
+                    hint: The text displayed below the section title
+                  - name: section_id
+                    widget: string
+                    required: false
+                    label: Section ID
+                    default: spotlight
+                  - name: home_img
+                    widget: object
+                    required: false
+                    label: Section Image
+                    hint: The image displayed under the section subtitle
+                    fields:
+                      - name: data_position
+                        widget: select
+                        required: false
+                        label: Image Data Position
+                        default: center
+                        options:
+                          - right
+                          - left
+                          - center
+                      - name: path
+                        widget: image
+                        required: false
+                        label: Image
+                  - name: identifier
+                    widget: string
+                    required: true
+                    label: Identifier
+                    default: spotlight
+                    hint: >-
+                      Used by the CMS to identify the section (not used by the
+                      page)
+                  - name: component
+                    widget: hidden
+                    required: true
+                    label: Section Component
+                    default: spotlight.html
+              - name: stats
+                widget: object
+                label: Stats Section
+                fields:
+                  - name: title
+                    widget: string
+                    required: true
+                    label: Section Title
+                    hint: The text displayed at the top of the section
+                  - name: subtitle
+                    widget: markdown
+                    required: false
+                    label: Section Subtitle
+                    hint: The text displayed below the section title
+                  - name: section_id
+                    widget: string
+                    required: false
+                    label: Section ID
+                    default: stats
+                  - name: stats_list
+                    widget: list
+                    required: false
+                    label: Statistics
+                    hint: A list of statistics to be displayed in the section
+                    fields:
+                      - name: title
+                        widget: string
+                        required: true
+                        label: Statistic Title
+                        hint: The text displayed under the statistic value
+                      - name: num
+                        widget: string
+                        required: true
+                        label: Statistic Value
+                  - name: identifier
+                    widget: string
+                    required: true
+                    label: Identifier
+                    default: stats
+                    hint: >-
+                      Used by the CMS to identify the section (not used by the
+                      page)
+                  - name: component
+                    widget: hidden
+                    required: true
+                    label: Section Component
+                    default: stats.html
+              - name: spotlight_pages
+                widget: object
+                label: Spotlight Pages Section
+                fields:
+                  - name: title
+                    widget: string
+                    required: true
+                    label: Section Title
+                    hint: the text displayed at the top of the section
+                  - name: subtitle
+                    widget: markdown
+                    required: false
+                    label: Section Subtitle
+                    hint: The text displayed below the section title
+                  - name: section_id
+                    widget: string
+                    required: false
+                    label: Section ID
+                    default: spotlight_pages
+                  - name: identifier
+                    widget: string
+                    required: true
+                    label: Identifier
+                    default: spotlight pages
+                    hint: >-
+                      Used by the CMS to identify the section (not used by the
+                      page)
+                  - name: component
+                    widget: hidden
+                    required: true
+                    label: Section Component
+                    default: cta.html
+              - name: cta
+                widget: object
+                label: CTA Section
+                fields:
+                  - name: section_id
+                    widget: hidden
+                    required: false
+                    label: Section ID
+                  - name: identifier
+                    widget: string
+                    required: true
+                    label: Identifier
+                    default: cta
+                    hint: >-
+                      Used by the CMS to identify the section (not used by the
+                      page)
+                  - name: component
+                    widget: hidden
+                    required: true
+                    label: Section Component
+                    default: cta.html
+          - name: layout
+            widget: hidden
+            required: true
+            label: Layout
+            default: home
+  - name: page
+    label: Pages
+    folder: /
+    filter:
+      field: layout
+      value: page
+    create: true
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - name: title
+        widget: string
+        required: true
+        label: Page Title
+        hint: The text displayed at the top of the page
+      - name: subtitle
+        widget: markdown
+        required: false
+        label: Section Subtitle
+        hint: The text displayed below the page title
+      - name: excerpt
+        widget: markdown
+        required: false
+        label: Home Spotlight Excerpt
+        hint: >-
+          The excerpt displayed in the home spotlight (if home spotlight is
+          enabled)
+      - name: content_img_path
+        widget: image
+        required: false
+        label: Content Image
+        hint: The image displayed in the content section of the page
+      - name: alt_img_path
+        widget: image
+        required: false
+        label: Alternate Image
+        hint: The image displayed in the home spotlights section
+      - name: show_in_spotlight
+        widget: boolean
+        required: false
+        label: Show In Home Spotlights
+        default: false
+        hint: Displays a spotlight for the page in the home spotlights section
+      - name: spotlight_weight
+        widget: number
+        required: false
+        label: Spotlight Index
+        hint: The index of the page spotlight in the home spotlights section
+        valueType: int
+      - name: show_cta
+        widget: boolean
+        required: false
+        label: Show CTA
+        default: false
+        hint: Displays the CTA at the bottom of the page
+      - name: layout
+        widget: hidden
+        required: true
+        label: Layout
+        default: page
+      - name: body
+        label: Content
+        widget: markdown
+  - name: elements
+    label: Elements
+    files:
+      - name: elements
+        label: Elements
+        file: elements.md
+        fields:
+          - name: title
+            widget: string
+            required: true
+            label: Page Title
+            hint: The text displayed at the top of the page
+          - name: subtitle
+            widget: markdown
+            required: false
+            label: Page Subtitle
+            hint: The text displayed below the page title
+          - name: show_cta
+            widget: boolean
+            required: false
+            label: Show CTA
+            default: false
+            hint: Displays the CTA at the bottom of the page
+          - name: layout
+            widget: hidden
+            required: true
+            label: Layout
+            default: elements

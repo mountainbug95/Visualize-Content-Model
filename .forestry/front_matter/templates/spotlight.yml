@@ -2,12 +2,15 @@
 label: Spotlight Section
 hide_body: true
 is_partial: true
-display_field: identifier
+display_field: title
 fields:
   - type: text
     name: title
     label: Section Title
-    description: The text displayed at the top of the section
+    description: >-
+      The text displayed at the top of the section (Also used by the CMS, even
+      if no title is displayed in the section)
+    default: Spotlight Section
     config:
       required: true
   - type: textarea
@@ -41,13 +44,6 @@ fields:
       - type: file
         name: path
         label: Image
-  - type: text
-    name: identifier
-    label: Identifier
-    description: Used by the CMS to identify the section (not used by the page)
-    default: spotlight
-    config:
-      required: true
   - type: text
     name: component
     label: Section Component
